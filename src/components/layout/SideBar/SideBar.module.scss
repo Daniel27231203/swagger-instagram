@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Arima:wght@100..700&display=swap");
+
+.SideBar {
+  width: 400px;
+  padding: 20px;
+  .content {
+    .logo {
+      margin: 40px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      h3 {
+        font-family: "Arima", system-ui;
+        letter-spacing: 2px;
+        font-size: 30px;
+      }
+      img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+      }
+    }
+    nav {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .navBox {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      padding: 10px;
+      border-radius: 10px;
+      &:hover {
+        background: rgba(205, 199, 199, 0.679);
+      }
+      span {
+        font-size: 25px;
+        background: none;
+      }
+      a {
+        font-size: 20px;
+        color: black;
+        text-decoration: none;
+      }
+    }
+    .down {
+      margin-top: 100px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      .another {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px;
+        cursor: pointer;
+      }
+    }
+  }
+}
