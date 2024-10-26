@@ -1,14 +1,17 @@
 .side {
   display: flex;
-  gap: 20px;
+  justify-content: space-between;
   .LayoutSite {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     min-height: 100vh;
     main {
+      // margin: auto;
+      margin-bottom: auto;
     }
     footer {
+      // display: none;
       margin-top: auto;
     }
   }

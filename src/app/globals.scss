@@ -14,3 +14,76 @@
 html {
   color-scheme: white;
 }
+
+@media (max-width: 1550px) {
+  .container {
+    max-width: 900px;
+  }
+}
+
+@media (max-width: 1450px) {
+  .container {
+    max-width: 800px;
+  }
+}
+@media (max-width: 1350px) {
+  .container {
+    max-width: 700px;
+  }
+}
+@media (max-width: 1250px) {
+  .container {
+    max-width: 600px;
+  }
+}
+@media (max-width: 1150px) {
+  .container {
+    max-width: 500px;
+  }
+}
+@media (max-width: 755px) {
+  .container {
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 700px) {
+  .container {
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    max-width: 580px;
+  }
+}
+
+@media (max-width: 590px) {
+  .container {
+    max-width: 550px;
+  }
+}
+@media (max-width: 550px) {
+  .container {
+    max-width: 510px;
+  }
+}
+
+@media (max-width: 510px) {
+  .container {
+    max-width: 480px;
+  }
+}
+
+@media (max-width: 485px) {
+  .container {
+    max-width: 450px;
+  }
+}
+
+@media (max-width: 450px) {
+  .container {
+    max-width: 430px;
+  }
+}

@@ -4,6 +4,8 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import scss from "./SingupPage.module.scss";
 import { useSignUpMutation } from "@/redux/api/auth";
 import { useRouter } from "next/navigation";
+import { FaRegEyeSlash, FaRegEye } from "react-icons/fa";
+import Link from "next/link";
 
 // Тип данных формы
 
@@ -45,7 +47,6 @@ const SignupPage: FC = () => {
         <div className={scss.content}>
           <h2>Sign Up</h2>
           <form className={scss.form} onSubmit={handleSubmit(onSubmit)}>
-            {/* Username */}
             <label htmlFor="username">Username</label>
             <input
               type="text"
@@ -58,7 +59,6 @@ const SignupPage: FC = () => {
               <p className={scss.error}>{errors.username.message}</p>
             )}
 
-            {/* Email */}
             <label htmlFor="email">Email</label>
             <input
               type="email"
@@ -77,7 +77,6 @@ const SignupPage: FC = () => {
               <p className={scss.error}>{errors.email.message}</p>
             )}
 
-            {/* Password */}
             <label htmlFor="password">Password</label>
             <div className={scss.inputWrapper}>
               <input
@@ -93,27 +92,25 @@ const SignupPage: FC = () => {
                   },
                 })}
               />
-              <button
-                type="button"
-                className={scss.eyeButton}
-                onClick={() => setShowPassword(!showPassword)}
-              >
-                <img
-                  src={
-                    showPassword
-                      ? "/images/eye-open.png"
-                      : "/images/eye-closed.png"
-                  }
-                  alt={showPassword ? "Hide password" : "Show password"}
-                  className={scss.eyeIcon}
-                />
-              </button>
+              {showPassword ? (
+                <button
+                  onClick={() => {
+                    setShowPassword(false);
+                  }}
+                >
+                  <FaRegEyeSlash />
+                </button>
+              ) : (
+                <button onClick={() => setShowPassword(true)}>
+                  <FaRegEye />
+                </button>
+              )}
             </div>
+
             {errors.password && (
               <p className={scss.error}>{errors.password.message}</p>
             )}
 
-            {/* Image instead of Confirm Password */}
             <label>Add Image</label>
             <input
               type="text"
@@ -128,7 +125,7 @@ const SignupPage: FC = () => {
             </button>
 
             <div className={scss.links}>
-              <a href="#">Already have an account? Sign In</a>
+              <Link href={"/sing-in"}>Already have an account? Sign In</Link>
             </div>
           </form>
         </div>

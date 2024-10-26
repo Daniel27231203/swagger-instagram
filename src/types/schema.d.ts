@@ -34,3 +34,8 @@ interface ISignUpToken {
   accessTokenExpiration: number;
   refreshToken: string;
 }
+
+interface UpdateProfile {
+  username: string;
+  photo: string;
+}

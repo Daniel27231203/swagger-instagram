@@ -17,6 +17,7 @@ import user13 from "../../../assets/user13.jpeg";
 import user14 from "../../../assets/user14.jpeg";
 import user15 from "../../../assets/user15.jpg";
 import user16 from "../../../assets/user16.jpeg";
+import { useGetMeQuery } from "@/redux/api/auth";
 
 const Header = () => {
   const historyProfile = [
@@ -102,19 +103,25 @@ const Header = () => {
     },
   ];
 
+  const { data } = useGetMeQuery();
+
   return (
     <header className={scss.header}>
       <div className="container">
-        <div className={scss.content}>
-          {historyProfile.map((el) => (
-            <div className={scss.box}>
-              <div className={scss.borderImage}>
-                <Image src={el.profileImage} alt={el.name} />
+        {data ? (
+          <div className={scss.content}>
+            {historyProfile.map((el, index) => (
+              <div key={index} className={scss.box}>
+                <div className={scss.borderImage}>
+                  <Image src={el.profileImage} alt={el.name} />
+                </div>
+                <p>{el.name}</p>
               </div>
-              <p>{el.name}</p>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        ) : (
+          <p>вы ещё не заригестрированы! или не вошли в аккаунт!</p>
+        )}
       </div>
     </header>
   );

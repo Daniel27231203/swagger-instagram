@@ -5,6 +5,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import scss from "./SignInPage.module.scss";
 import { useSignInMutation } from "@/redux/api/auth";
+import Link from "next/link";
 
 // Интерфейс для данных формы
 interface FormInputs {
@@ -89,8 +90,8 @@ const SignInPage: FC = () => {
               </button>
 
               <div className={scss.links}>
-                <a href="#">Forgot password?</a>
-                <a href="/sing-up">Create an account</a>
+                <Link href="/auth/forgot">Forgot password?</Link>
+                <Link href="/sing-up">Create an account</Link>
               </div>
             </form>
           </div>

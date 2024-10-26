@@ -1,10 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Arima:wght@100..700&display=swap");
 
 .SignInPage {
-  width: 100%;
+  // width: 1000px;
   height: 100vh;
   background: rgba(158, 151, 151, 0.645);
   .content {
+    width: 1000px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -46,6 +47,7 @@
           font-weight: 700;
           border: none;
           border-radius: 15px;
+          cursor: pointer;
         }
         .links {
           display: flex;
@@ -55,6 +57,53 @@
           }
         }
       }
+    }
+  }
+}
+@media (max-width: 1541px) {
+  .SignInPage {
+    .content {
+      width: 800px;
+    }
+  }
+}
+
+@media (max-width: 1313px) {
+  .SignInPage {
+    .content {
+      width: 600px;
+    }
+  }
+}
+
+@media (max-width: 1149px) {
+  .SignInPage {
+    .content {
+      width: 400px;
+    }
+  }
+}
+
+@media (max-width: 909px) {
+  .SignInPage {
+    .content {
+      width: 400px;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .SignInPage {
+    .content {
+      width: 500px;
+    }
+  }
+}
+
+@media (max-width: 519px) {
+  .SignInPage {
+    .content {
+      width: 400px;
     }
   }
 }

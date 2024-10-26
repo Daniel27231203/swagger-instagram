@@ -1,0 +1,22 @@
+.footer {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .footer {
+    display: block;
+    .content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      a {
+        text-decoration: none;
+        color: black;
+        cursor: pointer;
+        span {
+          font-size: 30px;
+        }
+      }
+    }
+  }
+}

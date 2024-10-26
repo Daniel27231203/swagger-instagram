@@ -1,113 +1,78 @@
 .SignupPage {
+  width: 1000px;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  background: linear-gradient(135deg, #ff6a00, #ee0979);
-
-  .container {
-    width: 100%;
-    max-width: 400px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-
+  background: rgba(222, 214, 214, 0.792);
   .content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
     h2 {
       text-align: center;
-      margin-bottom: 20px;
-      color: #333;
     }
-
-    .form {
+    form {
       display: flex;
       flex-direction: column;
-
-      .input {
-        margin-bottom: 10px;
+      gap: 10px;
+      input {
         padding: 10px;
-        border: 1px solid #ccc;
         border-radius: 5px;
-        font-size: 16px;
+        border: 1px solid #ccc;
       }
-
       .inputWrapper {
+        display: flex;
+        align-items: center;
         position: relative;
-
-        .eyeButton {
+        button {
           position: absolute;
-          right: 10px;
-          top: 50%;
-          transform: translateY(-50%);
+          right: 170px;
+          top: 5px;
+          cursor: pointer;
           background: none;
           border: none;
-          cursor: pointer;
-          padding: 0;
-
-          .eyeIcon {
-            width: 20px;
-            height: 20px;
-          }
+          font-size: 25px;
         }
       }
-
-      .uploadedImage {
-        width: 100%;
-        height: auto;
-        margin: 10px 0;
-        border-radius: 10px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      }
-
-      .error {
-        color: red;
-        font-size: 14px;
-        margin-bottom: 10px;
-      }
-
       .button {
         padding: 10px;
-        background-color: #ee0979;
-        color: #fff;
+        background: rgb(118, 118, 230);
+        color: white;
         border: none;
-        border-radius: 5px;
+        outline: none;
+        border-radius: 15px;
         cursor: pointer;
-        font-size: 16px;
-        transition: background-color 0.3s ease;
-
-        &:hover {
-          background-color: #ff6a00;
-        }
-      }
-
-      .links {
-        margin-top: 10px;
-        text-align: center;
-
-        a {
-          color: #ee0979;
-          text-decoration: none;
-          font-size: 14px;
-
-          &:hover {
-            text-decoration: underline;
-          }
-        }
       }
     }
   }
 }
 
-// Адаптивность
-@media (max-width: 480px) {
-  .container {
-    padding: 15px;
+@media (max-width: 1541px) {
+  .SignupPage {
+    width: 800px;
   }
+}
 
-  .input,
-  .button {
-    font-size: 14px;
+@media (max-width: 1313px) {
+  .SignupPage {
+    width: 600px;
+  }
+}
+
+@media (max-width: 1149px) {
+  .SignupPage {
+    width: 500px;
+  }
+}
+
+@media (max-width: 909px) {
+  .SignupPage {
+    width: 500px;
   }
 }
