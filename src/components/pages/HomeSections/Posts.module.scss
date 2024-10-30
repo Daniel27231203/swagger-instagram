@@ -1,0 +1,14 @@
+.Posts {
+  padding: 20px 0;
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    overflow-x: scroll;
+    height: 80vh;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}

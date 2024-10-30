@@ -1,15 +1,15 @@
 "use client";
 import { FC, useState } from "react";
 import scss from "./ProfileHero.module.scss";
-import { useGetMeQuery } from "@/redux/api/auth";
 import Link from "next/link";
 import { AiOutlineSetting } from "react-icons/ai";
 import Loading from "@/components/ui/Loading";
 import EditProfile from "@/components/ui/EditProfile/EditProfile";
+import { useGetMeQuery } from "@/redux/api/auth";
 
-const ProfileHero: FC = () => {
-  const { data, isLoading } = useGetMeQuery();
+const ProfileHero = () => {
   const [editUi, setEditUi] = useState(false);
+  const { data, isLoading } = useGetMeQuery();
 
   return (
     <section className={scss.ProfileHero}>
@@ -24,13 +24,15 @@ const ProfileHero: FC = () => {
                 <div className={scss.profileAbout}>
                   <div className={scss.profileBlock}>
                     <h2>{data?.profile.email}</h2>
-                    <button onClick={() => setEditUi(true)}>
-                      редактировать профиль
-                    </button>
-                    <button>посмотреть архив</button>
-                    <Link href={"/settings"}>
-                      <AiOutlineSetting className={scss.icon} />
-                    </Link>
+                    <>
+                      <button onClick={() => setEditUi(true)}>
+                        редактировать профиль
+                      </button>
+                      <button>посмотреть архив</button>
+                      <Link href={"/settings"}>
+                        <AiOutlineSetting className={scss.icon} />
+                      </Link>
+                    </>
                   </div>
                   <div className={scss.followersAbout}>
                     <h5>

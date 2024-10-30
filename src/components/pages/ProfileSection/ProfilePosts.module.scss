@@ -1,0 +1,43 @@
+.ProfilePosts {
+  height: 70vh;
+  overflow-x: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  padding: 40px 0;
+  .content {
+    display: flex;
+    align-items: start;
+    flex-wrap: wrap;
+    gap: 15px;
+
+    .box {
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      img {
+        width: 400px;
+        min-height: 500px;
+        height: auto;
+        border-radius: 15px 15px 0 0;
+        margin: 10px 0;
+      }
+      video {
+        width: 400px;
+        height: auto;
+        margin: 10px 0;
+        border-radius: 15px 15px 0 0;
+      }
+      button {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 0 0 15px 15px;
+        cursor: pointer;
+        background: rgb(90, 146, 210);
+        color: white;
+      }
+    }
+  }
+}

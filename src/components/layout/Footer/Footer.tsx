@@ -1,9 +1,11 @@
 import Link from "next/link";
 import scss from "./Footer.module.scss";
 import { linksFooter } from "@/constans/links";
+import { useGetMeQuery } from "@/redux/api/auth";
 
 const Footer = () => {
-  return (
+  const { data } = useGetMeQuery();
+  return data ? (
     <footer className={scss.footer}>
       <div className="container">
         <div className={scss.content}>
@@ -15,7 +17,7 @@ const Footer = () => {
         </div>
       </div>
     </footer>
-  );
+  ) : null;
 };
 
 export default Footer;

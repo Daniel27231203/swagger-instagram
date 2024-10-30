@@ -11,6 +11,7 @@ import SideBarUi from "@/components/ui/SideBarUi";
 
 const SideBar: FC = () => {
   const [sideBarMenu, setSideBarMenu] = useState(false);
+
   return (
     <section className={scss.SideBar}>
       <div className={scss.content}>

@@ -3,10 +3,12 @@ import scss from "./EditProfile.module.scss";
 import { IoCloseCircleOutline } from "react-icons/io5";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useEditProfileMutation } from "@/redux/api/auth"; // Предполагается Mutation
+import { useUploadMutation } from "@/redux/api/upload";
 
 interface UpdateProfile {
   username: string;
   photo: string;
+  file?: string;
 }
 
 interface EditProfileProps {
@@ -21,27 +23,35 @@ const EditProfile: FC<EditProfileProps> = ({
   setEditUi,
 }) => {
   const { register, handleSubmit, reset, setValue } = useForm<UpdateProfile>();
-
-  // Используем `useEditProfileMutation`
+  const [uploadMutation] = useUploadMutation();
   const [editProfile] = useEditProfileMutation();
 
-  // Устанавливаем начальные значения
   React.useEffect(() => {
     setValue("username", userNameValue);
     setValue("photo", userImageValue);
   }, [userNameValue, userImageValue, setValue]);
 
   const onSubmit: SubmitHandler<UpdateProfile> = async (data) => {
-    const newUser = {
-      username: data.username,
-      photo: data.photo,
-    };
     try {
-      await editProfile(newUser).unwrap(); // Ждём завершения мутации
-      reset(); // Сбрасываем форму после успешного сохранения
-      setEditUi(false); // Закрываем UI
+      if (!data.file || data.file.length === 0) {
+        throw new Error("Файл не выбран");
+      }
+
+      const selectedFile = data.file[0];
+      const formData = new FormData();
+      formData.append("file", selectedFile);
+
+      const { data: media } = await uploadMutation(formData);
+      const newUser = {
+        username: data.username,
+        photo: String(media?.url),
+      };
+
+      await editProfile(newUser).unwrap();
+      reset();
+      setEditUi(false);
     } catch (error) {
-      console.error("Failed to update profile:", error); // Обрабатываем ошибку
+      console.error("Failed to update profile:", error);
     }
   };
 
@@ -57,9 +67,9 @@ const EditProfile: FC<EditProfileProps> = ({
           {...register("username", { required: true })}
         />
         <input
-          type="text"
+          type="file"
           placeholder="New image"
-          {...register("photo", { required: true })}
+          {...register("file", { required: true })}
         />
         <button type="submit">Save</button>
       </form>

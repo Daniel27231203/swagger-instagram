@@ -3,7 +3,7 @@
   .content {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
     img {
       width: 200px;
       height: 200px;
@@ -72,10 +72,12 @@
             background: red;
           }
         }
-        p {
-          font: optional;
-        }
       }
+    }
+    .ui {
+      position: absolute;
+      top: 40%;
+      left: 40%;
     }
   }
 }

@@ -34,6 +34,7 @@ const SignInPage: FC = () => {
       localStorage.setItem("tokens", JSON.stringify(res));
       router.push("/");
       reset();
+      window.location.reload();
     } catch (error) {
       console.error("Ошибка авторизации:", error);
       alert("Failed to sign in. Please check your credentials.");

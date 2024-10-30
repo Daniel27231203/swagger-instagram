@@ -1,5 +1,5 @@
 import React from "react";
-import Welcom from "./HomeSections/Welcom";
+import Welcom from "./HomeSections/Posts";
 
 const HomePage = () => {
   return (
